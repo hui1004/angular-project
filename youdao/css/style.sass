@@ -1,0 +1,128 @@
+@mixin paddingLR($left,$right)
+  padding-left: $left
+  padding-right: $right
+  box-sizing: border-box
+
+@mixin flexCenter
+  display: -webkit-flex
+  justify-content: center
+  align-items: center
+
+body
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100%
+  font-size: .12rem
+  display: -webkit-flex
+  -webkit-flex-direction: column
+
+header
+  height: .45rem
+  background-color: #f1333f
+  div
+    width: 96%
+    height: .35rem
+    margin: .05rem auto
+    border-radius: .2rem
+    background-color: #fafafa
+    @include paddingLR(.34rem,.34rem)
+    position: relative
+    input
+      width: 100%
+      height: .32rem
+      border-width: 0
+      background-color: #fafafa
+      &::-webkit-input-placeholder
+        color: #afafaf
+    i
+      position: absolute
+      top: .08rem
+      &:nth-child(2)
+        left: .16rem
+        color: #afafaf
+      &:last-child
+        right: .14rem
+        color: #f14b57
+
+main
+  -webkit-flex: 1
+  overflow-y: scroll
+
+.navigator
+  position: relative
+  ul
+    display: -webkit-flex
+    border-bottom: .01rem solid #e1e1e1
+    li
+      width: 20%
+      height: .34rem
+      color: #707070
+      @include flexCenter
+      &.active
+        color: #fa3058
+  p
+    width: .3rem
+    line-height: .34rem
+    text-align: center
+    background-color: #fff
+    position: absolute
+    right: 0
+    top: 0
+    i
+      color: #969696
+
+.news-list
+  @include paddingLR(.12rem,.12rem)
+  dl
+    height: 1rem
+    @include flexCenter
+    border-bottom: .01rem solid #f9f9f9
+    dt
+      width: 1rem
+      height: .75rem
+      margin-left: .14rem
+      img
+        width: 100%
+        height: 100%
+    dd
+      -webkit-flex: 1
+      h1
+        font-size: .16rem
+      p
+        padding-top: .18rem
+        box-sizing: border-box
+        display: -webkit-flex
+        justify-content: space-between
+        color: #b6b6b6
+        .circle
+          padding: .02rem .04rem
+          border: .01rem solid #23a8ff
+          border-radius: .02rem
+          color: #23a8ff
+
+footer
+  ul
+    border-top: .01rem solid #c6c6c6
+    display: -webkit-flex
+    li
+      width: 20%
+      height: .49rem
+      color: #8a8a8a
+      @include flexCenter
+      -webkit-flex-direction: column
+      &.active
+        color: #f03745
+      span
+        padding-top: .06rem
+        box-sizing: border-box
+
+
+
+        
+
+
+
+
+
+

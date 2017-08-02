@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <title></title>
+</head>
+<body>
+    <header>
+        <div>
+            <input type="text" placeholder="在此输入要翻译的文本"/>
+            <i class="fa fa-search f18"></i>
+            <i class="fa fa-camera f20"></i>
+        </div>
+    </header>
+    <main>
+        <div class="navigator">
+            <ul>
+                <li>推荐</li>
+                <li class="active">有声美文</li>
+                <li>动听音乐</li>
+                <li>双语阅读</li>
+                <li>英语</li>
+            </ul>
+            <p><i class="fa fa-ellipsis-h"></i></p>
+        </div>
+        <div class="news-list">
+            <dl>
+                <dd>
+                    <h1 class="text-nobr">【每日一句】走，约饭去！</h1>
+                    <p>
+                        <span>英语功夫</span>
+                        <span>34赞</span>
+                    </p>
+                </dd>
+                <dt>
+                    <img src="images/news_03.jpg" alt="news"/>
+                </dt>
+            </dl>
+        </div>
+    </main>
+    <footer>
+        <ul>
+            <li class="active">
+                <i class="fa fa-book f20"></i>
+                <span>词典</span>
+            </li>
+            <li>
+                <i class="fa fa-book f20"></i>
+                <span>翻译</span>
+            </li>
+            <li>
+                <i class="fa fa-book f20"></i>
+                <span>精品课</span>
+            </li>
+            <li>
+                <i class="fa fa-compass f20"></i>
+                <span>发现</span>
+            </li>
+            <li>
+                <i class="fa fa-user-o f20"></i>
+                <span>我的</span>
+            </li>
+        </ul>
+    </footer>
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript">
+        /* news-list 数据渲染 */
+        $.ajax({
+            url:"data/data.json",
+            success:function(data){
+                var str = '';
+                $.each(data,function(key,value){
+                    if (value.tag=="圈子"){
+                        str+=' <dl>'+
+                                '<dd>'+
+                                '<h1 class="text-nowrap">'+value.title+'</h1>'+
+                                '<p>'+
+                                '<span class="circle">'+value.tag+'</span>'+
+                                '<span>'+value.count+'</span>'+
+                                '</p>'+
+                                '</dd>'+
+                                '<dt>'+
+                                '<img src="images/'+value.src+'" alt="news"/>'+
+                                '</dt>'+
+                                '</dl>';
+                    } else {
+                        str+=' <dl>'+
+                                '<dd>'+
+                                '<h1 class="text-nowrap">'+value.title+'</h1>'+
+                                '<p>'+
+                                '<span>'+value.tag+'</span>'+
+                                '<span>'+value.count+'</span>'+
+                                '</p>'+
+                                '</dd>'+
+                                '<dt>'+
+                                '<img src="images/'+value.src+'" alt="news"/>'+
+                                '</dt>'+
+                                '</dl>';
+                    }
+
+                });
+                $(".news-list").html(str);
+            }
+        })
+    </script>
+</body>
+</html>
