@@ -1,0 +1,190 @@
+@mixin flexCenter
+  display: -webkit-flex
+  justify-content: center
+  align-items: center
+
+@mixin paddingLR($left,$right)
+  padding-left: $left
+  padding-right: $right
+  box-sizing: border-box
+
+body
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100%
+  font-size: .12rem
+  display: -webkit-flex
+  -webkit-flex-direction: column
+  background-color: #f3f3f3
+
+header
+  background-color: #fff
+  position: relative
+  ul
+    width: 100%
+    border-bottom: .01rem solid #e5e5e5
+    display: -webkit-flex
+    li
+      width: 50%
+      height: .74rem
+      display: -webkit-flex
+      justify-content: flex-end
+      &:last-child
+        justify-content: flex-start
+      &.active
+        a
+          color: #fc062e
+          border-bottom: .01rem solid #fc062e
+      a
+        line-height: .74rem
+        @include paddingLR(.3rem,.3rem)
+      color: #000
+  & > span
+    line-height: .74rem
+    color: #798493
+    position: absolute
+    right: .2rem
+    top: 0
+
+main
+  -webkit-flex: 1
+  overflow-y: scroll
+
+.navigator
+  height: .73rem
+  padding-top: .09rem
+  @include paddingLR(.27rem,.27rem)
+  ul
+    height: .45rem
+    border: .01rem solid #d2d2d2
+    border-radius: .05rem
+    overflow: hidden
+    display: -webkit-flex
+    li
+      -webkit-flex: 1
+      color: #3a3a48
+      border-right: .01rem solid #d2d2d2
+      @include flexCenter
+      &.active
+        color: #fff
+        background-color: #fe4d4d
+      &:last-child
+        border-right: none
+
+.list
+  display: -webkit-flex
+  background-color: #fff
+  border-bottom: .005rem solid #e5e5e5
+  .list-left
+    -webkit-flex: 8
+    ul
+      display: -webkit-flex
+      li
+        width: 33.3%
+        height: .57rem
+        @include flexCenter
+        &.active
+          a
+            color: #ff0000
+        a
+          width: 100%
+          text-align: center
+          color: #3a3a48
+          border-right: .005rem solid #e5e5e5
+  .list-right
+    -webkit-flex: 2
+    line-height: .57rem
+    text-align: center
+    color: #6a6a6a
+    border-left: .005rem solid #e5e5e5
+
+.pro-details
+  position: relative
+  #wrapper
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 3.12rem
+    overflow: hidden
+  #scroller
+    ul
+      & > li
+        background-image: url("../images/bg_02.jpg")
+        -webkit-background-size: 100% 100%
+        padding-bottom: .3rem
+        border-bottom: .005rem solid #e5e5e5
+        h3
+          @include paddingLR(10%,10%)
+          line-height: .65rem
+          position: relative
+          p
+            color: #333333
+            i
+              color: #d8d8d8
+          span
+            line-height: .24rem
+            @include paddingLR(.03rem,.03rem)
+            border: .01rem solid #58c45b
+            border-radius: .2rem
+            color: #58c45b
+            font-size: .12rem
+            position: absolute
+            right: .26rem
+            top: .2rem
+        ol
+          display: -webkit-flex
+          li
+            -webkit-flex: 1
+            @include flexCenter
+            @include paddingLR(.05rem,.05rem)
+            -webkit-flex-direction: column
+            border-right: .005rem solid #e5e5e5
+            &:last-child
+              border-right: none
+            span
+              &:last-child
+                padding-top: .2rem
+                box-sizing: border-box
+            .check
+              color: #1aa4ed
+            .star
+              color: #dfdfdf
+            .starlight
+              color: #ffa81d
+
+footer
+  z-index: 999
+  ul
+    border-top: .005rem solid #e5e5e5
+    display: -webkit-flex
+    background-color: #fff
+    li
+      width: 25%
+      height: .7rem
+      @include flexCenter
+      -webkit-flex-direction: column
+      &.active
+        i,
+        span
+          color: #fa3d3d
+      i
+        color: #d5d5d8
+      span
+        color: #7a7a7a
+        &:last-child
+          padding-top: .18rem
+          box-sizing: border-box
+
+
+
+
+
+
+
+
+
+
+
+
